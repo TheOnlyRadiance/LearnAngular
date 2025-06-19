@@ -1,15 +1,24 @@
 <h3>Listado de Heroes</h3>
 
-<h3>Heroe borrado
-    <small class="text-danger"> XXXX</small>
-</h3>
-<h3>Noh hay borrado.</h3>
+<!-- debase siempre el Ngif es false -->
+<div *ngIf="deletedHero" class="alert alert-success">
+  <h3>
+    Heroe borrado
+    <small class="text-danger"> {{deletedHero}}</small>
+  </h3>
 
-<button class="btn btn-outline-danger">
-    Borrar ultimo Heroe
-</button>
+</div>
+<!-- El ng-Template es un contener invisble -->
+<ng-template>
+<h3>No hay borrado.</h3>
+</ng-template>
+
+
+<button 
+(click)="removeLastHero()"
+class="btn btn-outline-danger"
+>Borrar ultimo Heroe</button>
 
 <ul class="mt2 list-group">
-  <li *ngFor="let name of heroNames" 
-  class="list-group-item">{{name}}</li>
+  <li *ngFor="let name of heroNames" class="list-group-item">{{ name }}</li>
 </ul>
