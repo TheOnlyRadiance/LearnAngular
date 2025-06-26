@@ -8,18 +8,22 @@
     let isEven = even;
     let isOdd = odd;
     "
-    class="list-group-item"
+    class="list-group-item d-flex justify-content-between align-items-center"
     [ngClass]="{
       'list-group-item-success': isFirst,
       'list-group-item-danger': isLast, 
     }">
 
-    <span class="text-primary">{{ i + 1 }}. </span>
+    <div >
+      <span class="text-primary">{{ i + 1 }}. </span>
+  
+      <Span>{{ character.name }} - </Span>
+  
+      <strong>power: </strong>
+  
+      <span>{{ character.power }}</span>
+    </div>
 
-    <Span>{{ character.name }} - </Span>
-
-    <strong>power: </strong>
-
-    <span>{{ character.power }}</span>
+    <button (click)="onDeleteCharacter(character.id!)" class="btn btn-danger" >X</button>
   </li>
 </ul>
